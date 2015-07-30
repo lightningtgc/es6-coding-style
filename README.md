@@ -143,6 +143,7 @@ let obj = {
 [(a)] = [11]; // a未定义
 let { a: (b) } = {}; // 解析出错
 
+
 // 好
 let [a, b] = [11, 22];
 ```
@@ -184,15 +185,14 @@ function anotherFun(){
   const one = 1, two = 2, three = 3;
   return [one, two, three];
 }
-
 const [one, three, two] = anotherFun(); // 顺序乱了
+
 
 // 好
 function anotherFun(){
   const one = 1, two = 2, three = 3;
   return { one, two, three };
 }
-
 const { one, three, two } = anotherFun(); // 不用管顺序
 ```
 
@@ -458,7 +458,7 @@ class SomeClass{
 
   - private `get/set` 私有访问器，私有相关命名应加上下划线`_`为前缀
 
-  - provate methods 私有方法 
+  - private methods 私有方法 
 
 ```js
 class SomeClass {
