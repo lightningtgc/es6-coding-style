@@ -77,23 +77,32 @@ const ANOTHER_OBJ = {
 
 #### 字符串
 
-- 2.1 模板字符串
+- 2.1 处理多行字符串,使用模板字符串
 
-> 对于多行字符串，拼接变量的情况适用模板字符串，以反引号(  `  )标示
+> 以反引号( ` )标示
 
 > 可读性更强，代码更易编写
 
 ```js
   // 不好
   const multiStr = '多行字符串换行表示,\n 这是换行了。';
+
+
+  // 好
+  const multiStr = `多行字符串换行表示,
+                  这是换行了。`;
+```
+
+- 2.2 处理字符串拼接变量时,使用模板字符串
+
+```js
+  // 不好
   function sayHi(name) {
     return 'How are you, ' + name + '?';
   }
 
 
   // 好
-  const multiStr = `多行字符串换行表示,
-                  这是换行了。`;
   function sayHi(name) {
     return `How are you, ${name}?`;
   }
