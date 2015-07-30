@@ -28,7 +28,7 @@
 ```js
 // 不好
 const variables; 
-const globalObj = null; // 不是定义一个常量
+const globalObj = null; // 不是常量
 let globalObj = null; 
 
 for (var i=0; i<5; i++) {
@@ -180,7 +180,6 @@ function someFun( {opt1, opt2} ){
 
 ```js
 // 不好
-
 function anotherFun(){
   const one = 1, two = 2, three = 3;
   return [one, two, three];
@@ -209,7 +208,7 @@ let a;
 
 > 数组元素与顺序相关
 
--3.4.1 交换变量的值
+- 3.4.1 交换变量的值
  
 ```js
 let x = 1;
@@ -261,7 +260,7 @@ function foo(){
 ```
 - 4.2 数组去重
 
-> 结合Set结构与`Array.from`
+> 结合`Set`结构与`Array.from`
 
 ```js
 // 不好
