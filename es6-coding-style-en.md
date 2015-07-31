@@ -152,11 +152,11 @@ let [a, b] = [11, 22];
 
 - 3.3 Object destructuring
 
-> Object elements are not related to the order of sequence
+> 对象解构 元素与顺序无关
 
-> It is effective only when The object specifies the default value that equals to undefined (! = = null) 
+> 对象指定默认值时仅对恒等于undefined ( !== null ) 的情况生效
 
-- 3.3.1 When a function parameter is an object, the object is used to assign a value.
+- 3.3.1 若函数形参为对象时，使用对象解构赋值
 
 ```js
 // Bad
@@ -178,7 +178,7 @@ function someFun( {opt1, opt2} ) {
 }
 ```
 
-- 3.3.2 若函数有多个返回值时，使用对象解构，不使用数组解构，避免添加顺序的问题
+- 3.3.2 To avoid the order problem when adding, if the function have multiple return values, using object destructuring rather than array destructuring
 
 ```js
 // Bad
@@ -186,7 +186,7 @@ function anotherFun() {
   const one = 1, two = 2, three = 3;
   return [one, two, three];
 }
-const [one, three, two] = anotherFun(); // 顺序乱了
+const [one, three, two] = anotherFun(); // out of order
 
 
 // Good
@@ -194,7 +194,7 @@ function anotherFun() {
   const one = 1, two = 2, three = 3;
   return { one, two, three };
 }
-const { one, three, two } = anotherFun(); // 不用管顺序
+const { one, three, two } = anotherFun(); // let the order be
 ```
 
 - 3.3.3 已声明的变量不能用于解构赋值（语法错误）
