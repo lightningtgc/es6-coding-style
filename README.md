@@ -17,7 +17,7 @@
 5. [函数 Functions](#函数)
 6. [类 Classes](#类)
 7. [模块 Modules](#模块)
-8. [版权 Copyright](#Copyright)
+8. [版权 Copyright](#copyright)
 
 ### 声明
 - 1.1 变量
