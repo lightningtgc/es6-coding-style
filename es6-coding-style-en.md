@@ -152,11 +152,11 @@ let [a, b] = [11, 22];
 
 - 3.3 Object destructuring
 
-> 对象解构 元素与顺序无关
+> Object elements are not related to the order of sequence
 
-> 对象指定默认值时仅对恒等于undefined ( !== null ) 的情况生效
+> It is effective only when The object specifies the default value that equals to undefined (! = = null) 
 
-- 3.3.1 若函数形参为对象时，使用对象解构赋值
+- 3.3.1 When a function parameter is an object, the object is used to assign a value.
 
 ```js
 // Bad
