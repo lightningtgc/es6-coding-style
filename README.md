@@ -265,16 +265,13 @@ function foo() {
 
 > 结合`Set`结构与`Array.from`
 
+> 使用indexOf，HashTable等形式，不够简洁清晰
+
 ```js
-// 不好
-// 使用indexOf，HashTable等形式，不够简洁清晰
-
-
 // 好
 function deduplication(arr) {
   return Array.from(new Set(arr));
 }
-
 ```
 - 4.3 数组拷贝
 
@@ -676,4 +673,4 @@ export default { lightRed, black, white };
 
 #### Copyright
 
-Copyright (c) 2015-2016 [广发证券IT](http://it.gf.com.cn)
+Copyright (c) 2015 [广发证券IT](http://it.gf.com.cn)
