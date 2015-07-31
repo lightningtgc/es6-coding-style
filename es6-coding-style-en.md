@@ -6,7 +6,7 @@
 
 > Note that the current code compiling tools ( such as Babel, Traceur) is not perfect , some features should be used with caution
 
-### [ES6 Coding Style Chinese Version](https://github.com/gf-web/es6-coding-style/blob/master/README.md)
+### [ES6编码规范中文版本](https://github.com/gf-web/es6-coding-style/blob/master/README.md)
 
 ## Contents
 
