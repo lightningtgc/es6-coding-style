@@ -19,6 +19,7 @@
 7. [Modules](#modules)
 
 ### Declarations
+
 - 1.1 Variables
 
 > For only valid under the current scope of the variables , you should use `let` instead of ` var`
@@ -167,12 +168,12 @@ function someFun(opt) {
 
 
 // Good
-function someFun(opt){
+function someFun(opt) {
   let {opt1, opt2} = opt;
   console.log( `$(opt1) 加上 $(opt2)` );
 }
 
-function someFun( {opt1, opt2} ){
+function someFun( {opt1, opt2} ) {
   console.log(opt1);
 }
 ```
@@ -181,7 +182,7 @@ function someFun( {opt1, opt2} ){
 
 ```js
 // Bad
-function anotherFun(){
+function anotherFun() {
   const one = 1, two = 2, three = 3;
   return [one, two, three];
 }
@@ -189,7 +190,7 @@ const [one, three, two] = anotherFun(); // 顺序乱了
 
 
 // Good
-function anotherFun(){
+function anotherFun() {
   const one = 1, two = 2, three = 3;
   return { one, two, three };
 }
@@ -248,13 +249,13 @@ const [one, two] = arr;
 
 ```js
 // Bad
-function foo(){
+function foo() {
   let args = Array.prototype.slice.call(arguments);
 }
 
 
 // Good
-function foo(){
+function foo() {
   let args = Array.from(arguments);
 }
 
@@ -269,7 +270,7 @@ function foo(){
 
 
 // Good
-function deduplication(arr){
+function deduplication(arr) {
   return Array.from(new Set(arr));
 }
 
@@ -315,12 +316,12 @@ let arr2 = Array.of(1,2,3); // [1, 2, 3]
 
 ```js
 // Bad
-const foo = function(x){
+const foo = function(x) {
   console.log('存在函数提升问题');
   console.log(foo.name); // Return '', function expression can not be named , but function declaration can
 };
 
-[1, 2, 3].forEach(function(x){
+[1, 2, 3].forEach(function(x) {
   return x + 1;
 });
 
@@ -366,7 +367,7 @@ let test = x => ({x:x}); // 使用括号可正确return {x:x}
 
 ```js
 // Bad
-(function(){
+(function() {
   console.log('哈');
 })();
 
@@ -386,7 +387,7 @@ let test = x => ({x:x}); // 使用括号可正确return {x:x}
 
 ```js
 // Bad
-function foo(){
+function foo() {
   let args = Array.prototype.slice.call(arguments);
   return args.join('');
 }
@@ -424,7 +425,7 @@ function foo( opts = {}) {
 // Bad
 const shopObj = {
   des: '对象模块写法',
-  foo: function(){
+  foo: function() {
     console.log('对象中的方法');
   }
 };
@@ -432,7 +433,7 @@ const shopObj = {
 // Good
 const shopObj = {
   des: '对象模块写法',
-  foo(){
+  foo() {
     console.log('对象中的方法');
   }
 };
@@ -518,14 +519,14 @@ const foo = new Foo();
 function Dog(names = []) {
   this._names = [...names];
 }
-Dog.prototype.bark = function(){
+Dog.prototype.bark = function() {
   const currName = this._names[0];
   alert(`one one ${currName}`);
 }
 
 // Good
 class Dog {
-  constructor(names = []){
+  constructor(names = []) {
     this._name = [...names];
   }
   bark() {

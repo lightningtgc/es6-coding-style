@@ -8,7 +8,7 @@
 
 ### [ES6 Coding Style English Version](https://github.com/gf-web/es6-coding-style/blob/master/es6-coding-style-en.md)
 
-## 规范内容 
+## 规范内容
 
 1. [声明 Declarations](#声明)
 2. [字符串 Strings](#字符串)
@@ -20,6 +20,7 @@
 8. [版权 Copyright](#copyright)
 
 ### 声明
+
 - 1.1 变量
 
 > 对于只在当前作用域下有效的变量，应使用`let`来代替`var`
@@ -28,9 +29,9 @@
 
 ```js
 // 不好
-const variables; 
+const variables;
 const globalObj = null; // 不是常量
-let globalObj = null; 
+let globalObj = null;
 
 for (var i=0; i<5; i++) {
   console.log(i);
@@ -40,7 +41,7 @@ console.log(i);
 
 // 好
 let variables;
-var globalObj = null; 
+var globalObj = null;
 
 for (let i=0; i<5; i++) {
   console.log(i);
@@ -114,7 +115,7 @@ const tmpl = `<h1>多行字符串</h1>
 
 - 3.1 嵌套结构的对象层数不能超过3层
 
-```js 
+```js
 // 不好
 let obj = {
   'one': [
@@ -168,12 +169,12 @@ function someFun(opt) {
 
 
 // 好
-function someFun(opt){
+function someFun(opt) {
   let {opt1, opt2} = opt;
   console.log( `$(opt1) 加上 $(opt2)` );
 }
 
-function someFun( {opt1, opt2} ){
+function someFun( {opt1, opt2} ) {
   console.log(opt1);
 }
 ```
@@ -182,7 +183,7 @@ function someFun( {opt1, opt2} ){
 
 ```js
 // 不好
-function anotherFun(){
+function anotherFun() {
   const one = 1, two = 2, three = 3;
   return [one, two, three];
 }
@@ -190,7 +191,7 @@ const [one, three, two] = anotherFun(); // 顺序乱了
 
 
 // 好
-function anotherFun(){
+function anotherFun() {
   const one = 1, two = 2, three = 3;
   return { one, two, three };
 }
@@ -211,7 +212,7 @@ let a;
 > 数组元素与顺序相关
 
 - 3.4.1 交换变量的值
- 
+
 ```js
 let x = 1;
 let y = 2;
@@ -249,13 +250,13 @@ const [one, two] = arr;
 
 ```js
 // 不好
-function foo(){
+function foo() {
   let args = Array.prototype.slice.call(arguments);
 }
 
 
 // 好
-function foo(){
+function foo() {
   let args = Array.from(arguments);
 }
 
@@ -270,7 +271,7 @@ function foo(){
 
 
 // 好
-function deduplication(arr){
+function deduplication(arr) {
   return Array.from(new Set(arr));
 }
 
@@ -316,12 +317,12 @@ let arr2 = Array.of(1,2,3); // [1, 2, 3]
 
 ```js
 // 不好
-const foo = function(x){
+const foo = function(x) {
   console.log('存在函数提升问题');
   console.log(foo.name); // 返回'' ，函数表达式不可命名，函数声明可以
 };
 
-[1, 2, 3].forEach(function(x){
+[1, 2, 3].forEach(function(x) {
   return x + 1;
 });
 
@@ -367,7 +368,7 @@ let test = x => ({x:x}); // 使用括号可正确return {x:x}
 
 ```js
 // 不好
-(function(){
+(function() {
   console.log('哈');
 })();
 
@@ -387,7 +388,7 @@ let test = x => ({x:x}); // 使用括号可正确return {x:x}
 
 ```js
 // 不好
-function foo(){
+function foo() {
   let args = Array.prototype.slice.call(arguments);
   return args.join('');
 }
@@ -425,7 +426,7 @@ function foo( opts = {}) {
 // 不好
 const shopObj = {
   des: '对象模块写法',
-  foo: function(){
+  foo: function() {
     console.log('对象中的方法');
   }
 };
@@ -433,7 +434,7 @@ const shopObj = {
 // 好
 const shopObj = {
   des: '对象模块写法',
-  foo(){
+  foo() {
     console.log('对象中的方法');
   }
 };
@@ -459,34 +460,34 @@ class SomeClass{
 
   - private `get/set` 私有访问器，私有相关命名应加上下划线`_`为前缀
 
-  - private methods 私有方法 
+  - private methods 私有方法
 
 ```js
 class SomeClass {
   constructor() {
     // constructor
   }
-  
+
   get aval() {
     // public getter
   }
-  
+
   set aval(val) {
     // public setter
   }
-  
+
   doSth() {
     // 公用方法
   }
-  
+
   get _aval() {
     // private getter
   }
-  
+
   set _aval() {
     // private setter
   }
-  
+
   _doSth() {
     // 私有方法
   }
@@ -519,14 +520,14 @@ const foo = new Foo();
 function Dog(names = []) {
   this._names = [...names];
 }
-Dog.prototype.bark = function(){
+Dog.prototype.bark = function() {
   const currName = this._names[0];
   alert(`one one ${currName}`);
 }
 
 // 好
 class Dog {
-  constructor(names = []){
+  constructor(names = []) {
     this._name = [...names];
   }
   bark() {
@@ -545,7 +546,7 @@ class Dog {
 ```js
 // 不好
 let foo = new Foo();
-class Foo { } 
+class Foo { }
 
 
 // 好
@@ -553,12 +554,12 @@ class Foo { }
 let foo = new Foo();
 
 class SubFoo extends Foo {
-  
+
 }
 ```
 
 - 6.6 `this`的注意事项
- 
+
 > 子类使用`super`关键字时，`this`应在调用`super`之后才能使用
 
 > 可在方法中`return this`来实现链式调用写法
@@ -598,7 +599,7 @@ class SubFoo extends Foo {
 
 - 7.1 使用`import / export`来做模块加载导出，不使用非标准模块写法
 
-> 跟着标准走的人，运气总不会太差 
+> 跟着标准走的人，运气总不会太差
 
 ```js
 // 不好
@@ -631,7 +632,7 @@ export default lightRed;
 
 - 7.3 `import` 不使用统配符 `* ` 进行整体导入
 
-> 确保模块与模块之间的关系比较清晰 
+> 确保模块与模块之间的关系比较清晰
 
 ```js
 // 不好
