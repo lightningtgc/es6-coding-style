@@ -146,7 +146,7 @@ let obj = {
 ```js
 // 不好
 [(a)] = [11]; // a未定义
-let { a: (b) } = {}; // 解析出错
+let {a:(b)} = {}; // 解析出错
 
 
 // 好
@@ -195,9 +195,9 @@ const [one, three, two] = anotherFun(); // 顺序乱了
 // 好
 function anotherFun() {
   const one = 1, two = 2, three = 3;
-  return { one, two, three };
+  return {one, two, three};
 }
-const { one, three, two } = anotherFun(); // 不用管顺序
+const {one, three, two} = anotherFun(); // 不用管顺序
 ```
 
 - 3.3.3 已声明的变量不能用于解构赋值（语法错误）
@@ -205,8 +205,7 @@ const { one, three, two } = anotherFun(); // 不用管顺序
 ```js
 // 语法错误
 let a;
-{a} = {a: 123};
-
+{a} = {a:123};
 ```
 
 - 3.4 数组解构
@@ -280,7 +279,7 @@ function deduplication(arr) {
 > 采用数组扩展`...`形式
 
 ```js
-const items = [1,2,3];
+const items = [1, 2, 3];
 
 // 不好
 const len = items.length;
@@ -300,12 +299,12 @@ let copyTemp = [...items];
 ```js
 // 不好
 let arr1 = new Array(2); // [undefined x 2]
-let arr2 = new Array(1,2,3); // [1, 2, 3]
+let arr2 = new Array(1, 2, 3); // [1, 2, 3]
 
 
 // 好
 let arr1 = Array.of(2);  // [2]
-let arr2 = Array.of(1,2,3); // [1, 2, 3]
+let arr2 = Array.of(1, 2, 3); // [1, 2, 3]
 ```
 
 #### 函数
@@ -339,6 +338,8 @@ const foo = x => {
 
 - 5.1.1 箭头函数书写约定
 
+> 箭头函数必须与左右保持两个空格间距
+
 > 函数体只有单行语句时，允许写在同一行并去除花括号
 
 > 当函数只有一个参数时，允许去除参数外层的括号
@@ -347,7 +348,7 @@ const foo = x => {
 // 好
 const foo = x => x + x; // 注意此处会默认return x + x，有花括号语句块时不会return
 
-[1, 2, 3].map(x => x * x);
+[1, 2, 3].map( x => x * x);
 
 ```
 - 5.1.2 用箭头函数返回一个对象，应用括号包裹
@@ -450,21 +451,50 @@ class SomeClass {
 }
 ```
 
-- 6.1.1 类名与花括号须保留一个空格
+- 6.1.1 类名与花括号须保留一个空格间距
+
+> 类中的方法定义时，括号 `)` 也须与花括号 `{` 保留一个空格间距
 
 ```js
 // 不好
 class Foo{
-
+  constructor(){
+    // constructor
+  }
+  sayHi()    {
+    // 仅保留一个空格间距
+  }
 }
 
 
 // 好
 class Foo {
-
+  constructor() {
+    // constructor
+  }
+  sayHi() {
+    // 仅保留一个空格间距
+  }
 }
 ```
 
+- 6.1.2 使用`extends`关键字左右只保留一个空格间距
+
+```js
+// 不好
+class Foo { }
+
+class SubFoo  extends    Foo  {
+
+}
+
+// 好
+class Foo { }
+
+class SubFoo extends Foo {
+
+}
+```
 
 - 6.2 定义类时，方法的顺序如下：
 
