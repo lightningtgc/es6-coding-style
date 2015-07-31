@@ -61,7 +61,7 @@ console.log(i); // ReferenceError: i is not defined
 // 不好
 const someNum = 123;
 const AnotherStr = '不变的字符串';
-let SOME_ARR = ['不','变','数','组'];
+let SOME_ARR = ['不', '变', '数', '组'];
 var ANOTHER_OBJ = {
   '不变对象': true
 };
@@ -70,7 +70,7 @@ var ANOTHER_OBJ = {
 // 好
 const SOME_NUM = 123;
 const ANOTHER_STR = '不变的字符串';
-const SOME_ARR = ['不','变','数','组'];
+const SOME_ARR = ['不', '变', '数', '组'];
 const ANOTHER_OBJ = {
   '不变对象': true
 };
@@ -84,6 +84,8 @@ const ANOTHER_OBJ = {
 > 以反引号( ` )标示
 
 > 可读性更强，代码更易编写
+
+> 注意排版引起空格的问题，使用场景为声明HTML模板字符串
 
 ```js
 // 不好
@@ -171,10 +173,10 @@ function someFun(opt) {
 // 好
 function someFun(opt) {
   let {opt1, opt2} = opt;
-  console.log( `$(opt1) 加上 $(opt2)` );
+  console.log(`$(opt1) 加上 $(opt2)`);
 }
 
-function someFun( {opt1, opt2} ) {
+function someFun({opt1, opt2}) {
   console.log(opt1);
 }
 ```
@@ -410,7 +412,7 @@ function foo(opts) {
 
 
 // 好
-function foo( opts = {}) {
+function foo(opts = {}) {
   console.log('更加简洁，安全');
 }
 ```
@@ -443,9 +445,26 @@ const shopObj = {
 - 6.1 类名应使用帕斯卡写法(PascalCased)
 
 ```js
-class SomeClass{
+class SomeClass {
+
 }
 ```
+
+- 6.1.1 类名与花括号须保留一个空格
+
+```js
+// 不好
+class Foo{
+
+}
+
+
+// 好
+class Foo {
+
+}
+```
+
 
 - 6.2 定义类时，方法的顺序如下：
 
@@ -497,12 +516,14 @@ class SomeClass {
 ```js
 // 不好
 function Foo() {
+
 }
 const foo = new Foo();
 
 
 // 好
-class Foo() {
+class Foo {
+
 }
 const foo = new Foo();
 ```
@@ -608,6 +629,17 @@ module.exports = color.lightRed;
 import { lightRed } from './colors';
 export default lightRed;
 
+```
+
+- 7.1.1 `import / export` 后面采用花括号`{ }`引入模块的写法时，须在花括号内左右各保留一个空格
+
+```js
+// 不好
+import {lightRed} from './colors';
+import { lightRed} from './colors';
+
+// 好
+import { lightRed } from './colors';
 ```
 
 - 7.2 应确保每个module有且只有一个默认导出模块
