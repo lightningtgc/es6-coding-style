@@ -442,24 +442,24 @@ const shopObj = {
 
 #### Classes
 
-- 6.1 类名应使用帕斯卡写法(PascalCased)
+- 6.1 Class name is PascalCased
 
 ```js
 class SomeClass{
 }
 ```
 
-- 6.2 定义类时，方法的顺序如下：
+- 6.2 Class members should be defined following subsequent order:
 
   - `constructor`
 
-  - public `get/set` 公用访问器，`set`只能传一个参数
+  - public `get/set` public getters and setters，`set` should only take one argument
 
-  - public methods 公用方法，以函数命名区分，不带下划线
+  - public methods Use camel casing. Do not prefix _
 
-  - private `get/set` 私有访问器，私有相关命名应加上下划线`_`为前缀
+  - private `get/set` private getters and setters. Prefix `_`
 
-  - private methods 私有方法
+  - private methods
 
 ```js
 class SomeClass {
@@ -476,7 +476,7 @@ class SomeClass {
   }
 
   doSth() {
-    // 公用方法
+    // public method
   }
 
   get _aval() {
@@ -488,13 +488,13 @@ class SomeClass {
   }
 
   _doSth() {
-    // 私有方法
+    // private method
   }
 }
 
 ```
 
-- 6.3 如果不是class类，不使用`new`
+- 6.3 Do not use `new` on functions anymore.
 
 ```js
 // Bad
@@ -510,9 +510,9 @@ const foo = new Foo();
 ```
 
 
-- 6.4 使用真正意思上的类Class写法，不使用`prototype`进行模拟扩展
+- 6.4 Use class statement，deprecating `prototype` extension
 
-> Class更加简洁，易维护
+> Class is both simpler and more readable than prototype.
 
 ```js
 // Bad
@@ -536,11 +536,10 @@ class Dog {
 }
 ```
 
-- 6.5 class应先定义后使用
+- 6.5 class should be declared before use
 
-> 虽然规范里class不存在hoist问题，但转换工具如babel，只是转换为函数表达式，此处仍有hoist
-
-> 使用继承时，应先定义父类再定义子类
+> Even in ES6 standard, class declaration does not hoist. Trans-compiler such as babel convert them into function. So hoist exists.
+> Super class should be declared before subclass in inheritance.
 
 ```js
 // Bad
@@ -557,11 +556,11 @@ class SubFoo extends Foo {
 }
 ```
 
-- 6.6 `this`的注意事项
+- 6.6 Caveats for `this`
 
-> 子类使用`super`关键字时，`this`应在调用`super`之后才能使用
+> For subclass to use `super`, `super` should be the first call in the constructor.
 
-> 可在方法中`return this`来实现链式调用写法
+> May use `return this` for chaining.
 
 ```js
 class Foo {
@@ -574,7 +573,7 @@ class Foo {
 // Bad
 class SubFoo extends Foo {
   constructor(x, y, z) {
-    this.z = z; // 引用错误
+    this.z = z; // Reference error
     super(x, y);
   }
 }
@@ -584,7 +583,7 @@ class SubFoo extends Foo {
 class SubFoo extends Foo {
   constructor(x, y, z) {
     super(x, y);
-    this.z = z; // this 放在 super 后调用
+    this.z = z; // `this` is after `super` call
   }
   setHeight(height) {
     this.height = height;
@@ -594,11 +593,11 @@ class SubFoo extends Foo {
 ```
 
 
-#### 模块
+#### Module
 
-- 7.1 使用`import / export`来做模块加载导出，不使用非标准模块写法
+- 7.1 Use `import / export` for dependencies, deprecating commonjs require
 
-> 跟着标准走的人，运气总不会太差
+> Follow standards and always have a lucky day.
 
 ```js
 // Bad
@@ -612,9 +611,9 @@ export default lightRed;
 
 ```
 
-- 7.2 应确保每个module有且只有一个默认导出模块
+- 7.2 Make sure every module has a default exported namespace
 
-> 方便调用方使用
+> This makes it easy to use for module users.
 
 ```js
 // Bad
@@ -629,9 +628,9 @@ const lightRed = '#F07';
 export default lightRed;
 ```
 
-- 7.3 `import` 不使用统配符 `* ` 进行整体导入
+- 7.3 Do not use `* ` to import all exported variables
 
-> 确保模块与模块之间的关系比较清晰
+> Make modules dependencies as clear as possible.
 
 ```js
 // Bad
@@ -642,9 +641,9 @@ import colors from './colors';
 
 ```
 
-- 7.4 不要将`import`与`export`混合在一行
+- 7.4 Do not mix`import` and `export` on the same line
 
-> 分开导入与导出，让结构更清晰，可读性更强
+> Put exports and inputs on separate lines makes code more readable.
 
 ```js
 // Bad
@@ -655,9 +654,9 @@ import { lightRed } from './colors';
 export default lightRed;
 ```
 
-- 7.5 多变量要导出时应采用对象解构形式
+- 7.5 Use destructuring to make exports clear
 
-> `export`置于底部，使欲导出变量更加清晰
+> `export` should be placed at the end of each file to make exports clear.
 
 ```js
 // Bad
