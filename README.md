@@ -36,7 +36,7 @@ let globalObj = null;
 for (var i=0; i<5; i++) {
   console.log(i);
 }
-console.log(i);
+console.log(i); // 4
 
 
 // 好
@@ -46,7 +46,7 @@ var globalObj = null;
 for (let i=0; i<5; i++) {
   console.log(i);
 }
-console.log(i);
+console.log(i); // ReferenceError: i is not defined
 ```
 
 - 1.2 常量
