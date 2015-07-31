@@ -17,6 +17,7 @@
 5. [函数 Functions](#函数)
 6. [类 Classes](#类)
 7. [模块 Modules](#模块)
+8. [版权 Copyright](#Copyright)
 
 ### 声明
 - 1.1 变量
@@ -672,3 +673,6 @@ const white  = '#FFF';
 export default { lightRed, black, white };
 ```
 
+#### Copyright
+
+Copyright (c) 2015-2016 [gf-web](http://it.gf.com.cn)
