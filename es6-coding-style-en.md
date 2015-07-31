@@ -150,7 +150,7 @@ let { a: (b) } = {}; // Parsing error
 let [a, b] = [11, 22];
 ```
 
-- 3.3 对象解构
+- 3.3 Object destructuring
 
 > 对象解构 元素与顺序无关
 
