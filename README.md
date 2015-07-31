@@ -53,7 +53,7 @@ console.log(i); // ReferenceError: i is not defined
 
 > 对于常量应使用`const`进行声明，命名应遵循字母全大写的通俗约定
 
-> 对于不会改变的数据应用`const`进行声明
+> 对于使用 immutable 数据应用`const`进行声明
 
 > 注意: `const`与`let`只在声明所在的块级作用域内有效
 
