@@ -675,4 +675,4 @@ export default { lightRed, black, white };
 
 #### Copyright
 
-Copyright (c) 2015-2016 [gf-it](http://it.gf.com.cn)
+Copyright (c) 2015-2016 [广发证券IT](http://it.gf.com.cn)
