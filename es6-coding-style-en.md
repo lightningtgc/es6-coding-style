@@ -10,13 +10,13 @@
 
 ## 规范内容
 
-1. [Declarations](#Declarations)
-2. [Strings](#Strings)
-3. [Destructuring](#Destructuring)
-4. [Arrays](#Arrays)
-5. [Functions](#Functions)
-6. [Classes](#Classes)
-7. [Modules](#Modules)
+1. [Declarations](#declarations)
+2. [Strings](#strings)
+3. [Destructuring](#destructuring)
+4. [Arrays](#arrays)
+5. [Functions](#functions)
+6. [Classes](#classes)
+7. [Modules](#modules)
 
 ### Declarations
 - 1.1 Variables
