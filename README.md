@@ -195,6 +195,7 @@ function anotherFun() {
   return [one, two, three];
 }
 const [one, three, two] = anotherFun(); // 顺序乱了
+// one = 1, two = 3, three = 2
 
 
 // 好
@@ -203,6 +204,7 @@ function anotherFun() {
   return {one, two, three};
 }
 const {one, three, two} = anotherFun(); // 不用管顺序
+// one = 1, two = 2, three = 3
 ```
 
 - 3.3.3 已声明的变量不能用于解构赋值（语法错误）
@@ -210,7 +212,7 @@ const {one, three, two} = anotherFun(); // 不用管顺序
 ```js
 // 语法错误
 let a;
-{a} = {a:123};
+{a} = {b:123};
 ```
 
 - 3.4 数组解构
@@ -325,7 +327,7 @@ const foo = function(x) {
   console.log(foo.name); // 返回'' ，函数表达式不可命名，函数声明可以
 };
 
-[1, 2, 3].forEach(function(x) {
+[1, 2, 3].map(function(x) {
   return x + 1;
 });
 
@@ -336,9 +338,8 @@ const foo = x => {
   console.log(foo.name); // 返回'foo'
 };
 
-[1, 2, 3].forEach( x => {
+[1, 2, 3].map( x => {
   return x + 1;
-});
 ```
 
 - 5.1.1 箭头函数书写约定
