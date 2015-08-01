@@ -121,12 +121,15 @@ const tmpl = `<h1>多行字符串</h1>
 // 不好
 let obj = {
   'one': [
-    { 'newTwo': [
-        { 'three': [
+    {
+      'newTwo': [
+        {
+          'three': [
             'four': '太多层了，头晕晕'
           ]
         }
       ]
+    }
   ]
 };
 
@@ -135,7 +138,9 @@ let obj = {
 let obj = {
   'one': [
     'two',
-    {'twoObj': '结构清晰' }
+    {
+      'twoObj': '结构清晰'
+    }
   ]
 };
 
