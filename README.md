@@ -323,28 +323,48 @@ let arr2 = Array.of(1, 2, 3); // [1, 2, 3]
 ```js
 // 不好
 const foo = function(x) {
-  console.log('存在函数提升问题');
-  console.log(foo.name); // 返回'' ，函数表达式不可命名，函数声明可以
+  console.log(foo.name); // 返回'' ，函数表达式默认省略name属性
 };
 
 [1, 2, 3].map(function(x) {
   return x + 1;
 });
 
+var testObj = {
+  name: 'testObj',
+  init: function init() {
+    var _this = this; // 保存定义时的this引用
+    document.addEventListener('click', function() {
+      return _this.doSth();
+    }, false);
+  },
+  doSth: function() {
+    console.log(this.name);
+  }
+};
 
 // 好
 const foo = x => {
-  console.log('不存在函数提升问题');
   console.log(foo.name); // 返回'foo'
 };
 
 [1, 2, 3].map( x => {
   return x + 1;
+});
+
+var testObj = {
+  name: 'testObj',
+  init: function() {
+    // 箭头函数自动绑定定义时所在的对象
+    document.addEventListener('click', () => this.doSth(), false);
+  },
+  doSth: function() {
+    console.log(this.name);
+  }
+};
 ```
 
 - 5.1.1 箭头函数书写约定
-
-> 箭头函数必须与左右保持两个空格间距
 
 > 函数体只有单行语句时，允许写在同一行并去除花括号
 
@@ -352,7 +372,11 @@ const foo = x => {
 
 ```js
 // 好
-const foo = x => x + x; // 注意此处会默认return x + x，有花括号语句块时不会return
+const foo = x => x + x; // 注意此处会隐性return x + x
+
+const foo = (x) => {
+  return x + x; // 若函数体有花括号语句块时须进行显性的return
+}; 
 
 [1, 2, 3].map( x => x * x);
 
@@ -481,24 +505,6 @@ class Foo {
   sayHi() {
     // 仅保留一个空格间距
   }
-}
-```
-
-- 6.1.2 使用`extends`关键字左右只保留一个空格间距
-
-```js
-// 不好
-class Foo { }
-
-class SubFoo  extends    Foo  {
-
-}
-
-// 好
-class Foo { }
-
-class SubFoo extends Foo {
-
 }
 ```
 
