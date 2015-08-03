@@ -197,20 +197,20 @@ function anotherFun() {
 const { one, three, two } = anotherFun(); // let the order be
 ```
 
-- 3.3.3 已声明的变量不能用于解构赋值（语法错误）
+- 3.3.3 Declared variable can not be used deconstruction assignment（grammatical error)
 
 ```js
-// 语法错误
+// grammatical error
 let a;
 {a} = {a: 123};
 
 ```
 
-- 3.4 数组解构
+- 3.4 Array destructuring
 
-> 数组元素与顺序相关
+> Array elements are related to the order of sequence
 
-- 3.4.1 交换变量的值
+- 3.4.1 swap the value of variables
 
 ```js
 let x = 1;
@@ -224,10 +224,10 @@ y = temp;
 
 
 // Good
-[x, y] = [y, x]; // 交换变量
+[x, y] = [y, x]; // swap varialbes
 ```
 
-- 3.4.2 将数组成员赋值给变量时，使用数组解构
+- 3.4.2 When array members assigned to a variable, using array deconstruction
 
 ```js
 const arr = [1,2,3,4,5];
