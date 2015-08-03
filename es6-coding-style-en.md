@@ -197,10 +197,10 @@ function anotherFun() {
 const { one, three, two } = anotherFun(); // let the order be
 ```
 
-- 3.3.3 Declared variable can not be used deconstruction assignment（grammatical error)
+- 3.3.3 Declared variable can not be used deconstruction assignment（syntax error)
 
 ```js
-// grammatical error
+// syntax error
 let a;
 {a} = {a: 123};
 
@@ -227,7 +227,7 @@ y = temp;
 [x, y] = [y, x]; // swap varialbes
 ```
 
-- 3.4.2 When array members assigned to a variable, using array deconstruction
+- 3.4.2 When array members assigned to a variable, using array destructuring
 
 ```js
 const arr = [1,2,3,4,5];
