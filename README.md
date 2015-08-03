@@ -599,20 +599,26 @@ class Dog {
 
 - 6.5 class应先定义后使用
 
-> 虽然规范里class不存在hoist问题，但转换工具如babel，只是转换为函数表达式，此处仍有hoist
+> class不存在hoist问题，应先定义class再实例化
 
 > 使用继承时，应先定义父类再定义子类
 
 ```js
 // 不好
 let foo = new Foo();
-class Foo { }
+class SubFoo extends Foo {
+
+}
+class Foo {
+
+}
 
 
 // 好
-class Foo { }
-let foo = new Foo();
+class Foo {
 
+}
+let foo = new Foo();
 class SubFoo extends Foo {
 
 }
