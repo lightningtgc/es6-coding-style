@@ -317,7 +317,7 @@ let arr2 = Array.of(1,2,3); // [1, 2, 3]
 ```js
 // Bad
 const foo = function(x) {
-  console.log('存在函数提升问题');
+  console.log('function will hoist');
   console.log(foo.name); // Return '', function expression can not be named , but function declaration can
 };
 
@@ -328,8 +328,8 @@ const foo = function(x) {
 
 // Good
 const foo = x => {
-  console.log('不存在函数提升问题');
-  console.log(foo.name); // 返回'foo'
+  console.log('function not hoist');
+  console.log(foo.name); // return 'foo'
 };
 
 [1, 2, 3].forEach( x => {
@@ -337,53 +337,50 @@ const foo = x => {
 });
 ```
 
-- 5.1.1 箭头函数书写约定
-
-> 函数体只有单行语句时，允许写在同一行并去除花括号
-
-> 当函数只有一个参数时，允许去除参数外层的括号
+- 5.1.1 arrwo function convention
 
 ```js
 // Good
-const foo = x => x + x; // 注意此处会默认return x + x，有花括号语句块时不会return
+const foo = x => x + x; // will return x + x. But if wrap 'x + x' with '{}', it will not return because it become a block
 
 [1, 2, 3].map(x => x * x);
 
 ```
-- 5.1.2 用箭头函数返回一个对象，应用括号包裹
+- 5.1.2 if arrow function return a object, it should wrap the object in '()'
 
 ```js
 // Bad
-let test = x => {x:x}; // 花括号会变成语句块，不表示对象
+let test = x => {x:x}; // '{}' will be treated as a block , not a object
 
 
 // Good
-let test = x => ({x:x}); // 使用括号可正确return {x:x}
+let test = x => ({x:x}); // now wrap the object with '()',it will return '{x:x}'
+
 ```
 
-- 5.2 立即调用函数 IIFE
+- 5.2 immediately-invoked function expression IIFE
 
-> 使用箭头函数
+> use arrow function
 
 ```js
 // Bad
 (function() {
-  console.log('哈');
+  console.log('hey');
 })();
 
 
 // Good
 (() => {
-  console.log('哈');
+  console.log('hey');
 })();
 
 ```
 
-- 5.3 不使用 `arguments`, 采用rest语法`...`代替
+- 5.3 better not use 'arguments', replace it with '...'
 
-> rest参数是真正的数组，不需要再转换
+> rest parameter is a real array, no need to be converted
 
-> 注意：箭头函数中不能使用`arguments`对象
+> Tis: 'arguments' is prohibited in arrow function 
 
 ```js
 // Bad
@@ -400,41 +397,39 @@ function foo(...args) {
 
 ```
 
-- 5.4 函数参数指定默认值
+- 5.4 provide function parameter with default values
 
-> 采用函数默认参数赋值语法
 
 ```js
 // Bad
 function foo(opts) {
-  opts = opts || {};// 此处有将0，''等假值转换掉为默认值的副作用
+  opts = opts || {};// There is a obvious side-effect : 0 , '' will be treated as false 
 }
 
 
 // Good
 function foo( opts = {}) {
-  console.log('更加简洁，安全');
+  console.log('now better');
 }
 ```
 
-- 5.5 对象中的函数方法使用缩写形式
+- 5.5 define function in object , better use short form 
 
-> 更加简洁
 
 ```js
 // Bad
 const shopObj = {
-  des: '对象模块写法',
+  des: 'des',
   foo: function() {
-    console.log('对象中的方法');
+    console.log('function in object');
   }
 };
 
 // Good
 const shopObj = {
-  des: '对象模块写法',
+  des: 'des',
   foo() {
-    console.log('对象中的方法');
+    console.log('function in object');
   }
 };
 ```
