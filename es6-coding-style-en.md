@@ -312,40 +312,70 @@ let arr2 = Array.of(1,2,3); // [1, 2, 3]
 
 - 5.1 When you use function expressions or anonymous functions, use arrow function notation
 
-> Arrow function is much more clear, and binds `this` automatically
+> Arrow function is concise and bind this automatically.
 
 ```js
 // Bad
 const foo = function(x) {
-  console.log('function will hoist');
-  console.log(foo.name); // Return '', function expression can not be named , but function declaration can
+  console.log(foo.name); // Return '' ，function expression does not have a name
 };
 
-[1, 2, 3].forEach(function(x) {
+[1, 2, 3].map(function(x) {
   return x + 1;
 });
 
+var testObj = {
+  name: 'testObj',
+  init: function init() {
+    var _this = this; // explicitly preserve function context
+    document.addEventListener('click', function() {
+      return _this.doSth();
+    }, false);
+  },
+  doSth: function() {
+    console.log(this.name);
+  }
+};
 
 // Good
 const foo = x => {
-  console.log('function not hoist');
-  console.log(foo.name); // return 'foo'
+  console.log(foo.name); // Return 'foo'
 };
 
-[1, 2, 3].forEach( x => {
+[1, 2, 3].map( x => {
   return x + 1;
 });
+
+var testObj = {
+  name: 'testObj',
+  init: function() {
+    // arrow function preserve context for inner functions.
+    document.addEventListener('click', () => this.doSth(), false);
+  },
+  doSth: function() {
+    console.log(this.name);
+  }
+};
 ```
 
-- 5.1.1 arrwo function convention
+- 5.1.1 Arrow function conventions
+
+> For a single line function, curly braces can be omitted.
+
+> For a single parameter function, parentheses can be omitted.
 
 ```js
 // Good
-const foo = x => x + x; // will return x + x. But if wrap 'x + x' with '{}', it will not return because it become a block
+const foo = x => x + x; // The value of x + x is implicitly returned.
 
-[1, 2, 3].map(x => x * x);
+const foo = (x) => {
+  return x + x; // For a function enclosed in curly braces, value must be explicitly returned.
+};
+
+[1, 2, 3].map( x => x * x);
 
 ```
+
 - 5.1.2 if arrow function return a object, it should wrap the object in '()'
 
 ```js
