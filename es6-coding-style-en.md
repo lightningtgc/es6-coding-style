@@ -60,7 +60,7 @@ console.log(i);
 // Bad
 const someNum = 123;
 const AnotherStr = 'InvariantString';
-let SOME_ARR = ['in','variant','array'];
+let SOME_ARR = ['in', 'variant', 'array'];
 var ANOTHER_OBJ = {
   'invariantObject': true
 };
@@ -69,7 +69,7 @@ var ANOTHER_OBJ = {
 // Good
 const SOME_NUM = 123;
 const ANOTHER_STR = 'InvariantString';
-const SOME_ARR = ['in','variant','array'];
+const SOME_ARR = ['in', 'variant', 'array'];
 const ANOTHER_OBJ = {
   'invariantObject': true
 };
@@ -170,10 +170,10 @@ function someFun(opt) {
 // Good
 function someFun(opt) {
   let {opt1, opt2} = opt;
-  console.log( `$(opt1) 加上 $(opt2)` );
+  console.log(`$(opt1) 加上 $(opt2)`);
 }
 
-function someFun( {opt1, opt2} ) {
+function someFun({opt1, opt2}) {
   console.log(opt1);
 }
 ```
@@ -380,7 +380,7 @@ let test = x => ({x:x}); // now wrap the object with '()',it will return '{x:x}'
 
 > rest parameter is a real array, no need to be converted
 
-> Tis: 'arguments' is prohibited in arrow function 
+> Tis: 'arguments' is prohibited in arrow function
 
 ```js
 // Bad
@@ -403,17 +403,17 @@ function foo(...args) {
 ```js
 // Bad
 function foo(opts) {
-  opts = opts || {};// There is a obvious side-effect : 0 , '' will be treated as false 
+  opts = opts || {};// There is a obvious side-effect : 0 , '' will be treated as false
 }
 
 
 // Good
-function foo( opts = {}) {
+function foo(opts = {}) {
   console.log('now better');
 }
 ```
 
-- 5.5 define function in object , better use short form 
+- 5.5 define function in object , better use short form
 
 
 ```js
@@ -437,10 +437,38 @@ const shopObj = {
 
 #### Classes
 
-- 6.1 Class name is PascalCased
+- 6.1 Class name should be PascalCased
 
 ```js
 class SomeClass{
+
+}
+```
+
+- 6.1.1 class name and `{` should be separated by one space.
+
+> Class methods and `{` should also be separated by one space.
+
+```js
+// Bad
+class Foo{ // No space between class name and {
+  constructor(){
+    // No space between function and {
+  }
+  sayHi()    {
+    // Multiple spaces in-between
+  }
+}
+
+
+// Good
+class Foo {
+  constructor() {
+    // constructor
+  }
+  sayHi() {
+    // Only one space between function and {
+  }
 }
 ```
 
@@ -494,12 +522,14 @@ class SomeClass {
 ```js
 // Bad
 function Foo() {
+
 }
 const foo = new Foo();
 
 
 // Good
 class Foo() {
+
 }
 const foo = new Foo();
 ```
@@ -604,6 +634,17 @@ module.exports = color.lightRed;
 import { lightRed } from './colors';
 export default lightRed;
 
+```
+
+- 7.1.1 One space should be added inside curly braces both at the front and end, when using `{}` with `import / export`.
+
+```js
+// Bad
+import {lightRed} from './colors';
+import { lightRed} from './colors';
+
+// Good
+import { lightRed } from './colors';
 ```
 
 - 7.2 Make sure every module has a default exported namespace
