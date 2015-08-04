@@ -35,7 +35,7 @@ let globalObj = null;
 for (var i=0; i<5; i++) {
   console.log(i);
 }
-console.log(i);
+console.log(i); // 4
 
 
 // Good
@@ -45,7 +45,7 @@ var globalObj = null;
 for (let i=0; i<5; i++) {
   console.log(i);
 }
-console.log(i);
+console.log(i); // ReferenceError: i is not defined
 ```
 
 - 1.2 Constant
@@ -84,15 +84,20 @@ const ANOTHER_OBJ = {
 
 > More readable code easier to write
 
+> Note: the space by formatting, using it for HTML template string.
+
 ```js
 // Bad
-const tmpl = '<h1>Multi-line strings</h1>\n' +
-'<p>This is a new line.</p>';
+const tmpl = '<div class="content"> \n' +
+              '<h1>This is a new line.</h1> \n' +
+            '</div>';
 
 
 // Good
-const tmpl = `<h1>Multi-line strings</h1>
-<p>This is a new line.</p>`;
+const tmpl = `
+<div class="content">
+  <h1>This is a new line.</h1>
+</div>`;
 ```
 
 - 2.2 When dealing with string and variable concatenation, use the template string
