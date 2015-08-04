@@ -232,7 +232,7 @@ y = temp;
 [x, y] = [y, x]; // swap varialbes
 ```
 
-- 3.4.2 When array members assigned to a variable, using array destructuring
+- 3.4.2 Using array destruturing to extract data from arrays 
 
 ```js
 const arr = [1,2,3,4,5];
@@ -248,7 +248,7 @@ const [one, two] = arr;
 
 #### Arrays
 
-- 4.1 Convert array-like object and traversable object( such as `Set`,` Map`) to real array
+- 4.1 Convert array-like object and iterable object( such as `Set`,` Map`) to real array
 
 > Use `Array.from` to convert
 
@@ -265,13 +265,13 @@ function foo() {
 }
 
 ```
-- 4.2 Remove duplicate values from an array
+- 4.2 Remove duplicates from array
 
-> Combine `Set` structure  with ` Array.from`
+> Nice to use `Set` object and `Array.from`
 
 ```js
 // Bad
-// Don't use indexOf, HashTable etc because of their complexity and confusion
+// Don't use `indexOf`, `HashTable` etc, since they are not elegant enough
 
 
 // Good
@@ -298,9 +298,9 @@ for (let i=0; i<len; i++) {
 // Good
 let copyTemp = [...items];
 ```
-- 4.4 To convert an array-like object to an array
+- 4.4 Create array instance from a variable number of arguments
 
-> Use `Array.of` to convert
+> ES6 provides `Array.of` method
 
 ```js
 // Bad
