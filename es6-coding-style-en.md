@@ -32,7 +32,7 @@ const variables;
 const globalObj = null; // not a const
 let globalObj = null;
 
-for (var i=0; i<5; i++) {
+for (var i = 0; i < 5; i++) {
   console.log(i);
 }
 console.log(i); // 4
@@ -42,7 +42,7 @@ console.log(i); // 4
 let variables;
 var globalObj = null;
 
-for (let i=0; i<5; i++) {
+for (let i = 0; i < 5; i++) {
   console.log(i);
 }
 console.log(i); // ReferenceError: i is not defined
@@ -174,7 +174,7 @@ function someFun(opt) {
 
 // Good
 function someFun(opt) {
-  let {opt1, opt2} = opt;
+  let { opt1, opt2 } = opt;
   console.log(`$(opt1) 加上 $(opt2)`);
 }
 
@@ -207,7 +207,7 @@ const { one, three, two } = anotherFun(); // let the order be
 ```js
 // syntax error
 let a;
-{a} = {a: 123};
+{a} = { a: 123 };
 
 ```
 
@@ -235,7 +235,7 @@ y = temp;
 - 3.4.2 Using array destruturing to extract data from arrays 
 
 ```js
-const arr = [1,2,3,4,5];
+const arr = [1, 2, 3, 4, 5];
 
 // Bad
 const one = arr[0];
@@ -285,12 +285,12 @@ function deduplication(arr) {
 > Use array spreads ... to copy arrays
 
 ```js
-const items = [1,2,3];
+const items = [1, 2, 3];
 
 // Bad
 const len = items.length;
 let copyTemp = [];
-for (let i=0; i<len; i++) {
+for (let i = 0; i < len; i++) {
   copyTemp[i] = items[i];
 }
 
@@ -305,12 +305,12 @@ let copyTemp = [...items];
 ```js
 // Bad
 let arr1 = new Array(2); // [undefined x 2]
-let arr2 = new Array(1,2,3); // [1, 2, 3]
+let arr2 = new Array(1, 2, 3); // [1, 2, 3]
 
 
 // Good
 let arr1 = Array.of(2);  // [2]
-let arr2 = Array.of(1,2,3); // [1, 2, 3]
+let arr2 = Array.of(1, 2, 3); // [1, 2, 3]
 ```
 
 #### Functions
@@ -385,11 +385,11 @@ const foo = (x) => {
 
 ```js
 // Bad
-let test = x => {x:x}; // '{}' will be treated as a block , not a object
+let test = x => { x: x }; // '{}' will be treated as a block , not a object
 
 
 // Good
-let test = x => ({x:x}); // now wrap the object with '()',it will return '{x:x}'
+let test = x => ({ x: x }); // now wrap the object with '()',it will return '{x:x}'
 
 ```
 
@@ -475,7 +475,7 @@ const shopObj = {
 - 6.1 Class name should be PascalCased
 
 ```js
-class SomeClass{
+class SomeClass {
 
 }
 ```
@@ -668,7 +668,6 @@ module.exports = color.lightRed;
 // Good
 import { lightRed } from './colors';
 export default lightRed;
-
 ```
 
 - 7.1.1 One space should be added inside curly braces both at the front and end, when using `{}` with `import / export`.
@@ -742,5 +741,3 @@ const white  = '#FFF';
 
 export default { lightRed, black, white };
 ```
-
-#### Coming soon
