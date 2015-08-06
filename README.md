@@ -33,7 +33,7 @@ const variables;
 const globalObj = null; // 不是常量
 let globalObj = null;
 
-for (var i=0; i<5; i++) {
+for (var i = 0; i < 5; i++) {
   console.log(i);
 }
 console.log(i); // 4
@@ -43,7 +43,7 @@ console.log(i); // 4
 let variables;
 var globalObj = null;
 
-for (let i=0; i<5; i++) {
+for (let i = 0; i < 5; i++) {
   console.log(i);
 }
 console.log(i); // ReferenceError: i is not defined
@@ -239,7 +239,7 @@ y = temp;
 - 3.4.2 将数组成员赋值给变量时，使用数组解构
 
 ```js
-const arr = [1,2,3,4,5];
+const arr = [1, 2, 3, 4, 5];
 
 // 不好
 const one = arr[0];
@@ -291,7 +291,7 @@ const items = [1, 2, 3];
 // 不好
 const len = items.length;
 let copyTemp = [];
-for (let i=0; i<len; i++) {
+for (let i = 0; i < len; i++) {
   copyTemp[i] = items[i];
 }
 
