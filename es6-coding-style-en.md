@@ -315,9 +315,9 @@ let arr2 = Array.of(1, 2, 3); // [1, 2, 3]
 
 #### Functions
 
-- 5.1 When you use function expressions or anonymous functions, use arrow function notation
+- 5.1 Use arrow function expression instead of function expression and anonoymous function
 
-> Arrow function is concise and bind this automatically.
+> Arrow function expression has a shorter syntax and lexically binds the this value
 
 ```js
 // Bad
@@ -381,7 +381,7 @@ const foo = (x) => {
 
 ```
 
-- 5.1.2 if arrow function return a object, it should wrap the object in '()'
+- 5.1.2 if arrow function return an object, it should be wrapped in '()'
 
 ```js
 // Bad
@@ -432,7 +432,7 @@ function foo(...args) {
 
 ```
 
-- 5.4 provide function parameter with default values
+- 5.4 function parameters with default values.
 
 
 ```js
@@ -507,7 +507,7 @@ class Foo {
 }
 ```
 
-- 6.2 Class members should be defined following subsequent order:
+- 6.2 Class members should be defined in the following subsequent order:
 
   - `constructor`
 
@@ -572,7 +572,7 @@ const foo = new Foo();
 
 - 6.4 Use class statement，deprecating `prototype` extension
 
-> Class is both simpler and more readable than prototype.
+> Class is more simpler and more readable than prototype.
 
 ```js
 // Bad
@@ -657,7 +657,7 @@ class SubFoo extends Foo {
 
 - 7.1 Use `import / export` for dependencies, deprecating commonjs require
 
-> Follow standards and always have a lucky day.
+> Those who follow standards always have a lucky day.
 
 ```js
 // Bad
