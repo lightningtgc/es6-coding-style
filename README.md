@@ -89,13 +89,16 @@ const ANOTHER_OBJ = {
 
 ```js
 // 不好
-const tmpl = '<h1>多行字符串</h1>\n' +
-'<p>这是换行了。</p>';
+const tmpl = '<div class="content"> \n' +
+              '<h1>这是换行了。</h1> \n' +
+            '</div>';
 
 
 // 好
-const tmpl = `<h1>多行字符串</h1>
-<p>这是换行了。</p>`;
+const tmpl = `
+<div class="content">
+  <h1>这是换行了。</h1>
+</div>`;
 ```
 
 - 2.2 处理字符串拼接变量时,使用模板字符串
@@ -151,7 +154,7 @@ let obj = {
 ```js
 // 不好
 [(a)] = [11]; // a未定义
-let {a:(b)} = {}; // 解析出错
+let { a: (b) } = {}; // 解析出错
 
 
 // 好
@@ -177,11 +180,11 @@ function someFun(opt) {
 
 // 好
 function someFun(opt) {
-  let {opt1, opt2} = opt;
+  let { opt1, opt2 } = opt;
   console.log(`$(opt1) 加上 $(opt2)`);
 }
 
-function someFun({opt1, opt2}) {
+function someFun({ opt1, opt2 }) {
   console.log(opt1);
 }
 ```
@@ -201,9 +204,9 @@ const [one, three, two] = anotherFun(); // 顺序乱了
 // 好
 function anotherFun() {
   const one = 1, two = 2, three = 3;
-  return {one, two, three};
+  return { one, two, three };
 }
-const {one, three, two} = anotherFun(); // 不用管顺序
+const { one, three, two } = anotherFun(); // 不用管顺序
 // one = 1, two = 2, three = 3
 ```
 
@@ -212,7 +215,7 @@ const {one, three, two} = anotherFun(); // 不用管顺序
 ```js
 // 语法错误
 let a;
-{a} = {b:123};
+{ a } = { b: 123};
 ```
 
 - 3.4 数组解构
@@ -385,11 +388,11 @@ const foo = (x) => {
 
 ```js
 // 不好
-let test = x => {x:x}; // 花括号会变成语句块，不表示对象
+let test = x => { x: x }; // 花括号会变成语句块，不表示对象
 
 
 // 好
-let test = x => ({x:x}); // 使用括号可正确return {x:x}
+let test = x => ({ x: x }); // 使用括号可正确return {x:x}
 ```
 
 - 5.2 立即调用函数 IIFE
