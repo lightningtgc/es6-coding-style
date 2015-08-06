@@ -18,7 +18,7 @@
 6. [Classes](#classes)
 7. [Modules](#modules)
 
-### Declarations
+#### Declarations
 
 - 1.1 Variables
 
@@ -76,6 +76,8 @@ const ANOTHER_OBJ = {
 
 ```
 
+[Back To Top](#contents)
+
 #### Strings
 
 - 2.1 Handle multi-line strings , using the template string
@@ -114,6 +116,8 @@ const tmpl = `
     return `How are you, ${name}?`;
   }
 ```
+
+[Back To Top](#contents)
 
 #### Destructuring
 
@@ -246,6 +250,8 @@ const two = arr[1];
 const [one, two] = arr;
 ```
 
+[Back To Top](#contents)
+
 #### Arrays
 
 - 4.1 Convert array-like object and iterable object( such as `Set`,` Map`) to real array
@@ -312,6 +318,8 @@ let arr2 = new Array(1, 2, 3); // [1, 2, 3]
 let arr1 = Array.of(2);  // [2]
 let arr2 = Array.of(1, 2, 3); // [1, 2, 3]
 ```
+
+[Back To Top](#contents)
 
 #### Functions
 
@@ -469,6 +477,7 @@ const shopObj = {
 };
 ```
 
+[Back To Top](#contents)
 
 #### Classes
 
@@ -652,6 +661,7 @@ class SubFoo extends Foo {
 }
 ```
 
+[Back To Top](#contents)
 
 #### Module
 
