@@ -465,8 +465,9 @@ const shopObj = {
 };
 
 // 好
+const des = '对象模块写法'; // 使用对象属性值简写方式
 const shopObj = {
-  des: '对象模块写法',
+  des,
   foo() {
     console.log('对象中的方法');
   }
