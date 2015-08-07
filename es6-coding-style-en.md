@@ -147,11 +147,11 @@ let obj = {
 
 ```
 
-- 3.2 Never use parentheses in deconstruction statement
+- 3.2 Never use parentheses in destructuring
 
 ```js
 // Bad
-[(a)] = [11]; // a undefined
+[(a)] = [11]; // a is undefined
 let { a: (b) } = {}; // Parsing error
 
 
