@@ -76,7 +76,7 @@ const ANOTHER_OBJ = {
 
 ```
 
-[Back To Top](#Contents)
+[Back To Top](#contents)
 
 #### Strings
 
@@ -117,7 +117,7 @@ const tmpl = `
   }
 ```
 
-[Back To Top](#Contents)
+[Back To Top](#contents)
 
 #### Destructuring
 
@@ -250,7 +250,7 @@ const two = arr[1];
 const [one, two] = arr;
 ```
 
-[Back To Top](#Contents)
+[Back To Top](#contents)
 
 #### Arrays
 
@@ -323,9 +323,9 @@ let arr2 = Array.of(1, 2, 3); // [1, 2, 3]
 
 #### Functions
 
-- 5.1 Use arrow function expression instead of function expression and anonoymous function
+- 5.1 Use arrow function notation instead of function expressions and anonymous functions.
 
-> Arrow function expression has a shorter syntax and lexically binds the this value
+> Arrow function notation is a more concise syntax and it will binds `this` lexically.
 
 ```js
 // Bad
@@ -340,7 +340,7 @@ const foo = function(x) {
 var testObj = {
   name: 'testObj',
   init: function init() {
-    var _this = this; // explicitly preserve function context
+    var _this = this; // Explicitly preserve function context
     document.addEventListener('click', function() {
       return _this.doSth();
     }, false);
@@ -362,7 +362,7 @@ const foo = x => {
 var testObj = {
   name: 'testObj',
   init: function() {
-    // arrow function preserve context for inner functions.
+    // Arrow function preserve context for inner functions.
     document.addEventListener('click', () => this.doSth(), false);
   },
   doSth: function() {
@@ -371,7 +371,7 @@ var testObj = {
 };
 ```
 
-- 5.1.1 Arrow function conventions
+- 5.1.1 Arrow function conventions.
 
 > For a single line function, curly braces can be omitted.
 
@@ -386,24 +386,23 @@ const foo = (x) => {
 };
 
 [1, 2, 3].map( x => x * x);
-
 ```
 
-- 5.1.2 if arrow function return an object, it should be wrapped in '()'
+- 5.1.2 If arrow function return an object, it should be wrapped in '()'
 
 ```js
 // Bad
-let test = x => { x: x }; // '{}' will be treated as a block , not a object
+let test = x => { x: x }; // '{}' will be treated as a block which is not an object
 
 
 // Good
-let test = x => ({ x: x }); // now wrap the object with '()',it will return '{x:x}'
+let test = x => ({ x: x }); // Now wrap the object with '()',and it will return '{ x: x }'
 
 ```
 
-- 5.2 immediately-invoked function expression IIFE
+- 5.2 Immediately-invoked function expression (IIFE)
 
-> use arrow function
+> Use arrow function notation
 
 ```js
 // Bad
@@ -419,11 +418,11 @@ let test = x => ({ x: x }); // now wrap the object with '()',it will return '{x:
 
 ```
 
-- 5.3 better not use 'arguments', replace it with '...'
+- 5.3 Use rest syntax `...` instead of `arguments`.
 
-> rest parameter is a real array, no need to be converted
+> Rest arguments are a real Array, no need to be converted.
 
-> Tis: 'arguments' is prohibited in arrow function
+> Note: Arrows can not use their own 'arguments'.
 
 ```js
 // Bad
@@ -437,11 +436,9 @@ function foo() {
 function foo(...args) {
   return args.join('');
 }
-
 ```
 
-- 5.4 function parameters with default values.
-
+- 5.4 Use function default parameter syntax rather than mutating function arguments.
 
 ```js
 // Bad
@@ -452,27 +449,27 @@ function foo(opts) {
 
 // Good
 function foo(opts = {}) {
-  console.log('now better');
+  console.log('More clear and saferty');
 }
 ```
 
-- 5.5 define function in object , better use short form
-
+- 5.5 Use object method shorthand when define functions in an object.
 
 ```js
 // Bad
 const shopObj = {
-  des: 'des',
+  des: 'Des',
   foo: function() {
-    console.log('function in object');
+    console.log('function in an object');
   }
 };
 
 // Good
+const des = 'Des'; // Use property value shorthand.
 const shopObj = {
-  des: 'des',
+  des,
   foo() {
-    console.log('function in object');
+    console.log('function in an object');
   }
 };
 ```
@@ -665,7 +662,7 @@ class SubFoo extends Foo {
 
 #### Modules
 
-- 7.1 Use `import / export` for dependencies, deprecating commonjs require
+- 7.1 Use modules(`import / export`) over a non-standard module system for dependencies.
 
 > Those who follow standards always have a lucky day.
 
@@ -691,7 +688,7 @@ import { lightRed} from './colors';
 import { lightRed } from './colors';
 ```
 
-- 7.2 Make sure every module has a default exported namespace
+- 7.2 Make sure every module has a single default export.
 
 > This makes it easy to use for module users.
 
@@ -708,7 +705,7 @@ const lightRed = '#F07';
 export default lightRed;
 ```
 
-- 7.3 Do not use `* ` to import all exported variables
+- 7.3 Do not use `* ` (wildcard imports) to import all exported variables.
 
 > Make modules dependencies as clear as possible.
 
@@ -721,7 +718,7 @@ import colors from './colors';
 
 ```
 
-- 7.4 Do not mix`import` and `export` on the same line
+- 7.4 Do not mix`import` and `export` on the same line.
 
 > Put exports and inputs on separate lines makes code more readable.
 
@@ -734,7 +731,7 @@ import { lightRed } from './colors';
 export default lightRed;
 ```
 
-- 7.5 Use destructuring to make exports clear
+- 7.5 Use destructuring to make exports clear.
 
 > `export` should be placed at the end of each file to make exports clear.
 
@@ -752,4 +749,4 @@ const white  = '#FFF';
 export default { lightRed, black, white };
 ```
 
-[Back To Top](#Contents)
+[Back To Top](#contents)
