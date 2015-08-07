@@ -84,7 +84,7 @@ const ANOTHER_OBJ = {
 
 > Use backquote ( `) to mark
 
-> More readable code easier to write
+> A readable, concise syntax with proper newlines and string interpolation features.
 
 > Note: the space by formatting, using it for HTML template string.
 
@@ -147,7 +147,7 @@ let obj = {
 
 ```
 
-- 3.2 Parentheses never appear in deconstruction statement
+- 3.2 Never use parentheses in deconstruction statement
 
 ```js
 // Bad
