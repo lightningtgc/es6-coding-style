@@ -76,7 +76,7 @@ const ANOTHER_OBJ = {
 
 ```
 
-[Back To Top](#contents)
+[Back To Top](#Contents)
 
 #### Strings
 
@@ -117,7 +117,7 @@ const tmpl = `
   }
 ```
 
-[Back To Top](#contents)
+[Back To Top](#Contents)
 
 #### Destructuring
 
@@ -250,7 +250,7 @@ const two = arr[1];
 const [one, two] = arr;
 ```
 
-[Back To Top](#contents)
+[Back To Top](#Contents)
 
 #### Arrays
 
@@ -663,7 +663,7 @@ class SubFoo extends Foo {
 
 [Back To Top](#contents)
 
-#### Module
+#### Modules
 
 - 7.1 Use `import / export` for dependencies, deprecating commonjs require
 
@@ -752,4 +752,4 @@ const white  = '#FFF';
 export default { lightRed, black, white };
 ```
 
-[Back To Top](#contents)
+[Back To Top](#Contents)
