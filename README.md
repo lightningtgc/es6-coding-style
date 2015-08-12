@@ -477,9 +477,10 @@ const shopObj = {
 
 #### 类
 
-- 6.1 类名应使用帕斯卡写法(PascalCased)
+- 6.1 类名应使用帕斯卡写法(`PascalCased`)
 
 ```js
+// 好
 class SomeClass {
 
 }
@@ -518,13 +519,14 @@ class Foo {
 
   - public `get/set` 公用访问器，`set`只能传一个参数
 
-  - public methods 公用方法，以函数命名区分，不带下划线
+  - public methods 公用方法，公用相关命名使用小驼峰式写法(`lowerCamelCase`)
 
-  - private `get/set` 私有访问器，私有相关命名应加上下划线`_`为前缀
+  - private `get/set` 私有访问器，私有相关命名应加上下划线 `_` 为前缀
 
   - private methods 私有方法
 
 ```js
+// 好
 class SomeClass {
   constructor() {
     // constructor
