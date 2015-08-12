@@ -187,7 +187,7 @@ function someFun({opt1, opt2}) {
 }
 ```
 
-- 3.3.2 To avoid the order problem when adding, if the function have multiple return values, using object destructuring rather than array destructuring
+- 3.3.2 Use object destructuring for multiple return values rather than array destructuring, avoid the order problem when adding.
 
 ```js
 // Bad
@@ -206,7 +206,7 @@ function anotherFun() {
 const { one, three, two } = anotherFun(); // let the order be
 ```
 
-- 3.3.3 Declared variable can not be used deconstruction assignment（syntax error)
+- 3.3.3 Declared variable can not be used deconstruction assignment（syntax error).
 
 ```js
 // syntax error
@@ -217,9 +217,9 @@ let a;
 
 - 3.4 Array destructuring
 
-> Array elements are related to the order of sequence
+> Array elements are related to the order of sequence.
 
-- 3.4.1 swap the value of variables
+- 3.4.1 Swap the value of variables.
 
 ```js
 let x = 1;
@@ -236,7 +236,7 @@ y = temp;
 [x, y] = [y, x]; // swap varialbes
 ```
 
-- 3.4.2 Using array destruturing to extract data from arrays 
+- 3.4.2 Use array destruturing to extract data from arrays.
 
 ```js
 const arr = [1, 2, 3, 4, 5];
@@ -254,9 +254,9 @@ const [one, two] = arr;
 
 #### Arrays
 
-- 4.1 Convert array-like object and iterable object( such as `Set`,` Map`) to real array
+- 4.1 To convert array-like object and iterable object( such as `Set`,` Map`) to a real array.
 
-> Use `Array.from` to convert
+> Use `Array.from`.
 
 ```js
 // Bad
@@ -271,13 +271,13 @@ function foo() {
 }
 
 ```
-- 4.2 Remove duplicates from array
+- 4.2 Remove duplicates from arrays.
 
-> Nice to use `Set` object and `Array.from`
+> Nice to use `Set` object and `Array.from`.
 
 ```js
 // Bad
-// Don't use `indexOf`, `HashTable` etc, since they are not elegant enough
+// Don't use `indexOf`, `HashTable` etc, since they are not elegant enough.
 
 
 // Good
@@ -286,9 +286,9 @@ function deduplication(arr) {
 }
 
 ```
-- 4.3 Array Copy
+- 4.3 Arrays Copy
 
-> Use array spreads ... to copy arrays
+> Use array spreads `...` to copy arrays.
 
 ```js
 const items = [1, 2, 3];
@@ -304,9 +304,9 @@ for (let i = 0; i < len; i++) {
 // Good
 let copyTemp = [...items];
 ```
-- 4.4 Create array instance from a variable number of arguments
+- 4.4 Create array instance from a variable number of arguments.
 
-> ES6 provides `Array.of` method
+> Use `Array.of`, without special one-arg behavior.
 
 ```js
 // Bad
@@ -388,21 +388,21 @@ const foo = (x) => {
 [1, 2, 3].map( x => x * x);
 ```
 
-- 5.1.2 If arrow function return an object, it should be wrapped in '()'
+- 5.1.2 If arrow function return an object, it should be wrapped in `'()'`.
 
 ```js
 // Bad
-let test = x => { x: x }; // '{}' will be treated as a block which is not an object
+let test = x => { x: x }; // '{}' will be treated as a block which is not an object.
 
 
 // Good
-let test = x => ({ x: x }); // Now wrap the object with '()',and it will return '{ x: x }'
+let test = x => ({ x: x }); // Now wrap the object with '()',and it will return '{ x: x }'.
 
 ```
 
 - 5.2 Immediately-invoked function expression (IIFE)
 
-> Use arrow function notation
+> Use arrow function notation.
 
 ```js
 // Bad
@@ -443,7 +443,7 @@ function foo(...args) {
 ```js
 // Bad
 function foo(opts) {
-  opts = opts || {};// There is a obvious side-effect : 0 , '' will be treated as false
+  opts = opts || {};// There is a obvious side-effect : 0 , '' will be treated as false.
 }
 
 
@@ -478,15 +478,16 @@ const shopObj = {
 
 #### Classes
 
-- 6.1 Class name should be PascalCased
+- 6.1 Class names should be `PascalCased`.
 
 ```js
+// Good
 class SomeClass {
 
 }
 ```
 
-- 6.1.1 class name and `{` should be separated by one space.
+- 6.1.1 Class names and `{` should be separated by one space.
 
 > Class methods and `{` should also be separated by one space.
 
@@ -519,13 +520,14 @@ class Foo {
 
   - public `get/set` public getters and setters，`set` should only take one argument
 
-  - public methods Use camel casing. Do not prefix _
+  - public methods (Use `camelCase` for naming)
 
-  - private `get/set` private getters and setters. Prefix `_`
+  - private `get/set` private getters and setters. (with a `_` prefix)
 
-  - private methods
+  - private methods (with a `_` prefix)
 
 ```js
+// Good
 class SomeClass {
   constructor() {
     // constructor
@@ -576,7 +578,7 @@ const foo = new Foo();
 ```
 
 
-- 6.4 Use class statement，deprecating `prototype` extension
+- 6.4 Use class statement，deprecating `prototype` extension.
 
 > Class is more simpler and more readable than prototype.
 
