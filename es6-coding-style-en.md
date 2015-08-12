@@ -22,9 +22,9 @@
 
 - 1.1 Variables
 
-> For only valid under the current scope of the variables , you should use `let` instead of ` var`
+> For only valid under the current scope of the variables , you should use `let` instead of ` var`.
 
-> For global variable declaration , using `var`, but should avoid excessively declaring global variables which pollutes the global namespace
+> For global variable declaration, using `var`, but should avoid excessively declaring global variables which pollutes the global namespace.
 
 ```js
 // Bad
@@ -45,16 +45,16 @@ var globalObj = null;
 for (let i = 0; i < 5; i++) {
   console.log(i);
 }
-console.log(i); // ReferenceError: i is not defined
+console.log(i); // ReferenceError: i is not defined.
 ```
 
 - 1.2 Constant
 
-> For constant, using `const` to declare whose naming should be all uppercase following the popular conventions
+> For constant, using `const` to declare whose naming should be `ALL_CAPITAL_SNAKE_CASE`.
 
-> For immutable data, using `const` to declare
+> For immutable data, using `const` to declare.
 
-> Note : `const` and ` let` are only valid within the block level which they are declared
+> Note : `const` and ` let` are only valid within the block level which they are declared.
 
 ```js
 // Bad
@@ -80,9 +80,9 @@ const ANOTHER_OBJ = {
 
 #### Strings
 
-- 2.1 Handle multi-line strings , using the template string
+- 2.1 Handle multi-line strings , using the template string.
 
-> Use backquote ( `) to mark
+> Use backquote ( `) to mark.
 
 > A readable, concise syntax with proper newlines and string interpolation features.
 
@@ -102,7 +102,7 @@ const tmpl = `
 </div>`;
 ```
 
-- 2.2 When dealing with string and variable concatenation, use the template string
+- 2.2 When dealing with string and variable concatenation, use the `template string`.
 
 ```js
   // Bad
@@ -121,7 +121,7 @@ const tmpl = `
 
 #### Destructuring
 
-- 3.1 Layers of nested structures can not exceed 3 layers
+- 3.1 Layers of nested structures can not exceed 3 layers.
 
 ```js
 // Bad
@@ -147,7 +147,7 @@ let obj = {
 
 ```
 
-- 3.2 Never use parentheses in destructuring
+- 3.2 Never use parentheses in destructuring.
 
 ```js
 // Bad
@@ -161,9 +161,9 @@ let [a, b] = [11, 22];
 
 - 3.3 Object destructuring
 
-> Object elements are not related to the order of sequence
+> Object elements are not related to the order of sequence.
 
-> It is effective only when The object specifies the default value that equals to undefined (! = = null)
+> It is effective only when The object specifies the default value that equals to undefined (! = = null).
 
 - 3.3.1 When a function parameter is an object, the object is used to assign a value.
 
@@ -330,7 +330,7 @@ let arr2 = Array.of(1, 2, 3); // [1, 2, 3]
 ```js
 // Bad
 const foo = function(x) {
-  console.log(foo.name); // Return '' ，function expression does not have a name
+  console.log(foo.name); // Return ''
 };
 
 [1, 2, 3].map(function(x) {
@@ -388,7 +388,7 @@ const foo = (x) => {
 [1, 2, 3].map( x => x * x);
 ```
 
-- 5.1.2 If arrow function return an object, it should be wrapped in `'()'`.
+- 5.1.2 If arrow function return an object, it should be wrapped in '`()`'.
 
 ```js
 // Bad
@@ -604,9 +604,9 @@ class Dog {
 }
 ```
 
-- 6.5 class should be declared before use
+- 6.5 Classes should be declared before use.
 
-> Even in ES6 standard, class declaration does not hoist. Trans-compiler such as babel convert them into function. So hoist exists.
+> Class declaration does not exist `hoist`, should be declared before initialized.
 > Super class should be declared before subclass in inheritance.
 
 ```js
@@ -624,11 +624,11 @@ class SubFoo extends Foo {
 }
 ```
 
-- 6.6 Caveats for `this`
+- 6.6 Caution for `this`.
 
 > For subclass to use `super`, `super` should be the first call in the constructor.
 
-> May use `return this` for chaining.
+> Methods can use `return this` for method chaining.
 
 ```js
 class Foo {
