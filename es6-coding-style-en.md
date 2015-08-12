@@ -514,13 +514,13 @@ class Foo {
 }
 ```
 
-- 6.2 Class members should be defined in the following subsequent order:
+- 6.2 Class methods **should** be defined in the following subsequent order:
 
   - `constructor`
 
   - public `get/set` public getters and setters，`set` should only take one argument
 
-  - public methods (Use `camelCase` for naming)
+  - public methods (Use `lowerCamelCase` for methods naming)
 
   - private `get/set` private getters and setters. (with a `_` prefix)
 
@@ -560,7 +560,7 @@ class SomeClass {
 
 ```
 
-- 6.3 Do not use `new` on functions anymore.
+- 6.3 Use `new` for `classes` instead of `functions`.
 
 ```js
 // Bad
@@ -578,9 +578,9 @@ const foo = new Foo();
 ```
 
 
-- 6.4 Use class statement，deprecating `prototype` extension.
+- 6.4 Use `class` statement. Avoid manipulating `prototype` directly.
 
-> Class is more simpler and more readable than prototype.
+> Classes is more simpler and more readable than prototype.
 
 ```js
 // Bad
