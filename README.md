@@ -51,7 +51,7 @@ console.log(i); // ReferenceError: i is not defined
 
 - 1.2 常量
 
-> 对于常量应使用`const`进行声明，命名应遵循字母全大写的通俗约定
+> 对于常量应使用`const`进行声明，命名采用驼峰写法
 
 > 对于使用 immutable 数据应用`const`进行声明
 
@@ -59,19 +59,19 @@ console.log(i); // ReferenceError: i is not defined
 
 ```js
 // 不好
-const someNum = 123;
+let someNum = 123;
 const AnotherStr = '不变的字符串';
-let SOME_ARR = ['不', '变', '数', '组'];
+let arr = ['不', '变', '数', '组'];
 var ANOTHER_OBJ = {
   '不变对象': true
 };
 
 
 // 好
-const SOME_NUM = 123;
-const ANOTHER_STR = '不变的字符串';
-const SOME_ARR = ['不', '变', '数', '组'];
-const ANOTHER_OBJ = {
+const someNum = 123;
+const anotherStr = '不变的字符串';
+const arr = ['不', '变', '数', '组'];
+const anotherObj = {
   '不变对象': true
 };
 
