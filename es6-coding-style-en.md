@@ -50,7 +50,7 @@ console.log(i); // ReferenceError: i is not defined.
 
 - 1.2 Constant
 
-> For constant, using `const` to declare whose naming should be `ALL_CAPITAL_SNAKE_CASE`.
+> For constant, using `const` to declare whose naming should be `lowerCamelCase`.
 
 > For immutable data, using `const` to declare.
 
@@ -58,22 +58,21 @@ console.log(i); // ReferenceError: i is not defined.
 
 ```js
 // Bad
-const someNum = 123;
+let someNum = 123;
 const AnotherStr = 'InvariantString';
-let SOME_ARR = ['in', 'variant', 'array'];
+let arr = ['in', 'variant', 'array'];
 var ANOTHER_OBJ = {
   'invariantObject': true
 };
 
 
 // Good
-const SOME_NUM = 123;
-const ANOTHER_STR = 'InvariantString';
-const SOME_ARR = ['in', 'variant', 'array'];
-const ANOTHER_OBJ = {
+const someNum = 123;
+const anotherStr = 'InvariantString';
+const arr = ['in', 'variant', 'array'];
+const anotherObj = {
   'invariantObject': true
 };
-
 ```
 
 [Back To Top](#contents)
