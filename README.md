@@ -335,33 +335,33 @@ const foo = function(x) {
 
 var testObj = {
   name: 'testObj',
-  init: function init() {
+  init() {
     var _this = this; // 保存定义时的this引用
     document.addEventListener('click', function() {
       return _this.doSth();
     }, false);
   },
-  doSth: function() {
+  doSth() {
     console.log(this.name);
   }
 };
 
 // 好
-const foo = x => {
+const foo = (x) => {
   console.log(foo.name); // 返回'foo'
 };
 
-[1, 2, 3].map( x => {
+[1, 2, 3].map( (x) => {
   return x + 1;
 });
 
 var testObj = {
   name: 'testObj',
-  init: function() {
+  init() {
     // 箭头函数自动绑定定义时所在的对象
     document.addEventListener('click', () => this.doSth(), false);
   },
-  doSth: function() {
+  doSth() {
     console.log(this.name);
   }
 };
