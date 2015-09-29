@@ -338,33 +338,33 @@ const foo = function(x) {
 
 var testObj = {
   name: 'testObj',
-  init: function init() {
+  init() {
     var _this = this; // Explicitly preserve function context
     document.addEventListener('click', function() {
       return _this.doSth();
     }, false);
   },
-  doSth: function() {
+  doSth() {
     console.log(this.name);
   }
 };
 
 // Good
-const foo = x => {
+const foo = (x) => {
   console.log(foo.name); // Return 'foo'
 };
 
-[1, 2, 3].map( x => {
+[1, 2, 3].map( (x) => {
   return x + 1;
 });
 
 var testObj = {
   name: 'testObj',
-  init: function() {
+  init() {
     // Arrow function preserve context for inner functions.
     document.addEventListener('click', () => this.doSth(), false);
   },
-  doSth: function() {
+  doSth() {
     console.log(this.name);
   }
 };
