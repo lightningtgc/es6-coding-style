@@ -454,21 +454,32 @@ function foo(opts = {}) {
 
 - 5.5 Use object method shorthand when define functions in an object.
 
+> More clearly
+
+> Do not use arrow for object method define
+
 ```js
 // Bad
 const shopObj = {
-  des: 'Des',
+  des: 'Function in an object',
   foo: function() {
-    console.log('function in an object');
+    console.log(this.des);
+  }
+};
+
+const shopObj = {
+  des: 'Function in an object',
+  foo: () => {
+    console.log(this.des); // turn to `undefined.des`，cause top level `this` is undefined
   }
 };
 
 // Good
-const des = 'Des'; // Use property value shorthand.
+const des = 'Function in an object'; // Use property value shorthand.
 const shopObj = {
   des,
   foo() {
-    console.log('function in an object');
+    console.log(this.des);
   }
 };
 ```
