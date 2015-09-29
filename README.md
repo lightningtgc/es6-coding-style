@@ -455,12 +455,21 @@ function foo(opts = {}) {
 
 > 更加简洁
 
+> 函数方法不要使用箭头函数，避免this指向的混乱
+
 ```js
 // 不好
 const shopObj = {
   des: '对象模块写法',
   foo: function() {
-    console.log('对象中的方法');
+    console.log(this.des);
+  }
+};
+
+const shopObj = {
+  des: '对象模块写法',
+  foo: () => {
+    console.log(this.des); // 此处会变成undefined.des，因为指向顶层模块的this
   }
 };
 
@@ -469,7 +478,7 @@ const des = '对象模块写法'; // 使用对象属性值简写方式
 const shopObj = {
   des,
   foo() {
-    console.log('对象中的方法');
+    console.log(this.des);
   }
 };
 ```
