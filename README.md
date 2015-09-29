@@ -603,7 +603,7 @@ Dog.prototype.bark = function() {
 // 好
 class Dog {
   constructor(names = []) {
-    this._name = [...names];
+    this._names = [...names];
   }
   bark() {
     const currName = this._names[0];
