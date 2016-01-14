@@ -497,27 +497,36 @@ class SomeClass {
 
 - 6.1.1 类名与花括号须保留一个空格间距
 
-> 类中的方法定义时，括号 `)` 也须与花括号 `{` 保留一个空格间距
+> 类中的方法定义时, 方法名与左括号 `(` 之间【不保留】空格间距
+
+> 类中的方法定义时，右括号 `)` 须与花括号 `{` 【保留】一个空格间距
 
 ```js
 // 不好
 class Foo{
   constructor(){
-    // constructor
+    // 右括号 `)` 须与花括号 `{` 仅保留一个空格间距
   }
   sayHi()    {
-    // 仅保留一个空格间距
+    
   }
+  _say () {
+    // 方法名与左括号 `(` 之间【不保留】空格间距
+  }
+  
 }
 
 
 // 好
 class Foo {
   constructor() {
-    // constructor
+    // 右括号 `)` 须与花括号 `{` 仅保留一个空格间距
   }
   sayHi() {
-    // 仅保留一个空格间距
+    
+  }
+  _say() {
+    // 方法名与左括号 `(` 之间【不保留】空格间距
   }
 }
 ```
@@ -685,6 +694,7 @@ class SubFoo extends Foo {
 ```js
 // 不好
 const colors  = require('./colors');
+
 module.exports = color.lightRed;
 
 
@@ -712,13 +722,11 @@ import { lightRed } from './colors';
 ```js
 // 不好
 const lightRed = '#F07';
-
 export lightRed;
 
 
 // 好
 const lightRed = '#F07';
-
 export default lightRed;
 ```
 
