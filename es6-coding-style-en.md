@@ -499,16 +499,21 @@ class SomeClass {
 
 - 6.1.1 Class names and `{` should be separated by one space.
 
-> Class methods and `{` should also be separated by one space.
+> Class method names and `(` 【should not】 be separated by any space.
+
+> Class methods `)` and `{` 【should】 be separated by one space.
 
 ```js
 // Bad
-class Foo{ // No space between class name and {
+class Foo{ // No space between class name and `{`
   constructor(){
-    // No space between function and {
+    // No space between function and `{`
   }
   sayHi()    {
     // Multiple spaces in-between
+  }
+  _say () {
+    // Space between Class method name and `(`
   }
 }
 
@@ -519,7 +524,10 @@ class Foo {
     // constructor
   }
   sayHi() {
-    // Only one space between function and {
+    // Only one space between function and `{`
+  }
+  _say() {
+    // No any space between Class method names and `(`
   }
 }
 ```
@@ -713,7 +721,6 @@ export lightRed;
 
 // Good
 const lightRed = '#F07';
-
 export default lightRed;
 ```
 
