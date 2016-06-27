@@ -449,15 +449,6 @@ function foo(opts) {
 function foo(opts = {}) {
   console.log('更加简洁，安全');
 }
-
-
-// 好
-function invalidateParameterException() { 
-  throw new Error("InvalidateParameterException!"); 
-} 
-function foo(parameter = invalidateParameterException()) { // 也可以将默认值设置为异常方法，来对参数做验证
-  return parameter; 
-}
 ```
 
 - 5.5 对象中的函数方法使用缩写形式
