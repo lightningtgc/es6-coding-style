@@ -178,7 +178,7 @@ function someFun(opt) {
 // Good
 function someFun(opt) {
   let { opt1, opt2 } = opt;
-  console.log(`$(opt1) 加上 $(opt2)`);
+  console.log(`${opt1} 加上 ${opt2}`);
 }
 
 function someFun({opt1, opt2}) {
