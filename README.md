@@ -181,7 +181,7 @@ function someFun(opt) {
 // 好
 function someFun(opt) {
   let { opt1, opt2 } = opt;
-  console.log(`$(opt1) 加上 $(opt2)`);
+  console.log(`${opt1} 加上 ${opt2}`);
 }
 
 function someFun({ opt1, opt2 }) {
@@ -441,7 +441,7 @@ function foo(...args) {
 ```js
 // 不好
 function foo(opts) {
-  opts = opts || {};// 此处有将0，''等假值转换掉为默认值的副作用
+  opts = opts || {};// 此处有将 0，'' 等假值转换成为默认值的副作用
 }
 
 
